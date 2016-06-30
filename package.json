@@ -1,0 +1,28 @@
+{
+  "name": "rxjs-presentation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parallelshell \"npm run serve -s\" \"npm run livereload -s\"",
+    "livereload": "live-reload --port 9091 index.html styles.css",
+    "serve": "http-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stefanjaeger/rxjs-presentation.git"
+  },
+  "author": "Stefan Jäger <stefanjaeger@bluewin.ch> (http://stefanjaeger.ch)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stefanjaeger/rxjs-presentation/issues"
+  },
+  "homepage": "https://github.com/stefanjaeger/rxjs-presentation#readme",
+  "dependencies": {
+    "http-server": "^0.9.0",
+    "live-reload": "^1.1.0",
+    "parallelshell": "^2.0.0",
+    "prism-components": "^1.0.0",
+    "web-presentation": "^1.0.3"
+  }
+}
