@@ -6,15 +6,29 @@
     <title>Better event handling with RxJS</title>
     <link href="./node_modules/web-presentation/dist/web-presentation.html" rel="import">
     <link href="./node_modules/prism-components/dist/prism-components.html" rel="import">
+    <link href="./node_modules/html-mocks/html-mocks.html" rel="import">
+    <link href="./slides/fake-editor.html" rel="import">
     <link href="./node_modules/web-presentation/dist/transitions.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" charset="utf-8">
+    <link rel="stylesheet" href="./node_modules/twemoji-awesome/dist/twemoji-awesome.min.css">
 </head>
 
 <body>
+    <script src="./slides/cm-history.js"></script>
+
     <web-presentation>
         <web-presentation-progress></web-presentation-progress>
         <web-presentation-keyboardcontrols></web-presentation-keyboardcontrols>
 
+<web-slide>
+    <div class="flexbox-two-column-editor">
+	<div class="left"><i class="twa twa-lg twa-sparkles"></i></div>
+	<div class="right"><fake-editor history="movieTileInitial" tabs="app.js" tab-active="0" stop="298"></fake-editor>
+    </div>
+</div>
+        
+</web-slide>
+    
         <web-slide-title data-transition="moveFromBottom">
             <h2>Better event handling with</h2>
             <h1>RxJS</h1>

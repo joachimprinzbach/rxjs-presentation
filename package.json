@@ -24,5 +24,10 @@
     "parallelshell": "^2.0.0",
     "prism-components": "^1.0.0",
     "web-presentation": "^1.0.3"
+  },
+  "devDependencies": {
+    "codemirror": "^5.18.2",
+    "html-mocks": "^1.0.2",
+    "twemoji-awesome": "^1.0.4"
   }
 }
