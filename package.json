@@ -27,7 +27,6 @@
   },
   "devDependencies": {
     "codemirror": "^5.18.2",
-    "html-mocks": "^1.0.2",
-    "twemoji-awesome": "^1.0.4"
+    "html-mocks": "^1.0.2"
   }
 }

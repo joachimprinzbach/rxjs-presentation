@@ -10,36 +10,48 @@
     <link href="./slides/fake-editor.html" rel="import">
     <link href="./node_modules/web-presentation/dist/transitions.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" charset="utf-8">
-    <link rel="stylesheet" href="./node_modules/twemoji-awesome/dist/twemoji-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/ellekasai/twemoji-awesome/gh-pages/twemoji-awesome.css">
 </head>
 
 <body>
-    <script src="./slides/cm-history.js"></script>
+    <script src="./slides/introCallback.js"></script>
 
     <web-presentation>
         <web-presentation-progress></web-presentation-progress>
         <web-presentation-keyboardcontrols></web-presentation-keyboardcontrols>
 
-<web-slide>
-    <div class="flexbox-two-column-editor">
-	<div class="left"><i class="twa twa-lg twa-sparkles"></i></div>
-	<div class="right"><fake-editor history="movieTileInitial" tabs="app.js" tab-active="0" stop="298"></fake-editor>
-    </div>
-</div>
-        
-</web-slide>
-    
-        <web-slide-title data-transition="moveFromBottom">
+        <web-slide-title>
             <h2>Better event handling with</h2>
             <h1>RxJS</h1>
         </web-slide-title>
 
-        <web-slide data-transition="fadeIn">
-            <ul>
-                <li>History</li>
-                <li>Why RxJS</li>
-                <li>some RxJS basics</li>
-            </ul>
+        <web-slide>
+            <h1>Agenda</h1>
+            <h2>Introduction</h2>
+            <h2>...</h2>
+        </web-slide>
+
+        <!-- RxJS is not just another tool or another framework for async -->
+        <web-slide class="fullscreen-image-contained" style="background-image: url('images/tools.jpg')">
+        </web-slide>
+
+        <!-- RxJS is a new concept, a new toolset, based on ReactiveX -->
+        <web-slide class="fullscreen-image-contained" style="background-image: url('images/bosch-blue.jpg')">
+            <h1>ReactiveX</h1>
+        </web-slide>
+
+        <web-slide>
+            <div class="flexbox-two-column-editor">
+                <div class="left">
+                    <div style="position: absolute;top: 95px;left: 62px;"> <i class="twa twa-boom twa-2x" data-enter="1"></i></div>
+                    <div style="position: absolute;top: 110px;left: 98px;"><i class="twa twa-runner twa-2x flip" data-enter="2"></i></div>
+                    <div style="position: absolute;top: 222px;left: 98px;"><i class="twa twa-runner twa-2x flip" data-enter="3"></i></div>
+                    <div style="position: absolute;top: 225px;left: 73px;"> <i class="twa twa-boom twa-2x" data-enter="4"></i></div>
+                </div>
+                <div class="right">
+                    <fake-editor history="introCallback" tabs="callback.js" tab-active="0" steps="43,79,124,189,197"></fake-editor>
+                </div>
+            </div>
         </web-slide>
 
         <web-slide>

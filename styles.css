@@ -1,3 +1,59 @@
+html * {
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: 400;
+  font-style: normal;
+  src: url('/fonts/Open-Sans-regular/Open-Sans-regular.eot');
+  src: url('/fonts/Open-Sans-regular/Open-Sans-regular.eot?#iefix') format('embedded-opentype'),
+       local('Open Sans'),
+       local('Open-Sans-regular'),
+       url('/fonts/Open-Sans-regular/Open-Sans-regular.woff2') format('woff2'),
+       url('/fonts/Open-Sans-regular/Open-Sans-regular.woff') format('woff'),
+       url('/fonts/Open-Sans-regular/Open-Sans-regular.ttf') format('truetype'),
+       url('/fonts/Open-Sans-regular/Open-Sans-regular.svg#OpenSans') format('svg');
+}
+
+/* Slide size */
+web-slide::shadow div#content,
+web-slide-title::shadow div#content {
+      width: 960px;
+      height: 700px;
+      margin-top: -350px;
+      margin-left: -480px;
+}
+
+
+/* general styles */
+web-slide {
+    background: #FBFBFB;
+    color: #313542;
+}
+
+h1 {
+	font-size: 3em;
+}
+
+h2 {
+	font-size: 2em;
+}
+
+pre {
+	font-size: 1em;
+}
+
+p {
+	font-size: 1em;
+}
+
+i {
+  padding: 0 0.2em;
+}
+
+
 web-slide-title {
   font-family: sans-serif;
 }
@@ -16,12 +72,12 @@ web-slide:not(:last-child)::shadow div#content {
   padding: 20px;
 }
 
-web-slide:nth-of-type(1) { background: #fafafa; }
+/*web-slide:nth-of-type(1) { background: #fafafa; }
 web-slide:nth-of-type(2) { background: #fdc162; }
 web-slide:nth-of-type(3) { background: #60d7a9; }
 web-slide:nth-of-type(4) { background: #7bb7fa; }
 web-slide:nth-of-type(5) { background: #0ac2d2; }
-
+*/
 pre {
   font-size: 0.7em;
 }
@@ -34,7 +90,6 @@ fake-editor {
 fake-editor::shadow .CodeMirror {
 	font-size: 1.3em;
 }
-
 mockup-browser {
 	width: 80%;
     height: 70%;
@@ -64,17 +119,48 @@ mockup-browser img {
 	display: -ms-flex;
 	display: -webkit-flex;
 	display: flex;
+  height: 100%;
 }
 
 .flexbox-two-column-editor > div.left {
-	width: 20%;
+	width: 10%;
 	padding: 10px;
 }
 .flexbox-two-column-editor > div.right {
-	width: 80%;
+	width: 90%;
 	padding: 10px 0px 0px 0px;
 }
 
 .flexbox-two-column-editor > div:first-child {
 	margin-right: 20px;
+}
+
+.flip {
+  -moz-transform: scale(-1, 1);
+-webkit-transform: scale(-1, 1);
+-o-transform: scale(-1, 1);
+-ms-transform: scale(-1, 1);
+transform: scale(-1, 1);
+}
+
+
+
+@media print {
+  .fullscreen-image {
+    background-attachment: initial !important;
+    background-size: 500px 500px;
+  }
+}
+
+.fullscreen-image {
+	background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+	background-size: cover;
+}
+.fullscreen-image-contained {
+	background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+	background-size: contain;
 }
