@@ -10,11 +10,12 @@
     <link href="./slides/fake-editor.html" rel="import">
     <link href="./node_modules/web-presentation/dist/transitions.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" charset="utf-8">
-    <link rel="stylesheet" href="https://cdn.rawgit.com/ellekasai/twemoji-awesome/gh-pages/twemoji-awesome.css">
 </head>
 
 <body>
     <script src="./slides/introCallback.js"></script>
+    <script src="./slides/introPromise.js"></script>
+    <script src="./slides/introRxJS.js"></script>
 
     <web-presentation>
         <web-presentation-progress></web-presentation-progress>
@@ -37,27 +38,84 @@
 
         <!-- RxJS is a new concept, a new toolset, based on ReactiveX -->
         <web-slide class="fullscreen-image-contained" style="background-image: url('images/bosch-blue.jpg')">
-            <h1>ReactiveX</h1>
         </web-slide>
 
         <web-slide>
-            <div class="flexbox-two-column-editor">
-                <div class="left">
-                    <div style="position: absolute;top: 95px;left: 62px;"> <i class="twa twa-boom twa-2x" data-enter="1"></i></div>
-                    <div style="position: absolute;top: 110px;left: 98px;"><i class="twa twa-runner twa-2x flip" data-enter="2"></i></div>
-                    <div style="position: absolute;top: 222px;left: 98px;"><i class="twa twa-runner twa-2x flip" data-enter="3"></i></div>
-                    <div style="position: absolute;top: 225px;left: 73px;"> <i class="twa twa-boom twa-2x" data-enter="4"></i></div>
+            <fake-editor history="introCallback" tabs="callback.js" tab-active="0" steps="41,102,147,187"></fake-editor>
+        </web-slide>
+
+        <web-slide>
+            <h1>Callbacks</h1>
+            <div class="flexbox-two-column">
+                <div>
+                    <ul class="advantages">
+                        <li>Event driven</li>
+                    </ul>                    
                 </div>
-                <div class="right">
-                    <fake-editor history="introCallback" tabs="callback.js" tab-active="0" steps="43,79,124,189,197"></fake-editor>
+                <div>
+                    <ul class="disadvantages">
+                        <li>Callback hell</li>
+                        <li>Tight coupling between source and listener</l
+                    </ul>   
                 </div>
             </div>
         </web-slide>
 
         <web-slide>
-            <h1>Let's get started.</h1>
+            <fake-editor history="introPromise" tabs="callback.js,promise.js" tab-active="1" steps="54,101,148"></fake-editor>
+        </web-slide>
+        <web-slide>
+            <h1>Promise</h1>
+            <div class="flexbox-two-column">
+                <div>
+                    <ul class="advantages">
+                        <li>Event driven</li>
+                        <li>No callback hell</li>
+                        <li>Some synchronization (Promise.all())</li>
+                    </ul>                    
+                </div>
+                <div>
+                    <ul class="disadvantages">
+                        <li>Tight coupling between source and listener</l
+                    </ul>   
+                </div>
+            </div>
         </web-slide>
 
+        <web-slide>
+            <fake-editor history="introRxJS" tabs="callback.js,promise.js,rxjs.js" tab-active="2" steps=""></fake-editor>
+        </web-slide>
+        <web-slide>
+            <h1>RxJS</h1>
+            <div class="flexbox-two-column">
+                <div>
+                    <ul class="advantages">
+                        <li>Event driven</li>
+                        <li>Decoupling between event source and listener </li>
+                        <li>Part of ReactiveX</li>
+                    </ul>                    
+                </div>
+                <div>
+                    <ul class="disadvantages">
+                        <li>Not an ES standard yet</li>
+                    </ul>   
+                </div>
+            </div>
+        </web-slide>
+
+        <web-slide>
+            <h1>End of Presentation</h1>
+            <h2>Any questions?</h2>          
+        </web-slide>
+
+        <web-slide>
+            <h1>RxJS Marbles</h1>
+            <h2>Lets start with http://rxmarbles.com/</h2>          
+        </web-slide>
+
+        <web-slide>
+            <h1>final slide</h1>          
+        </web-slide>
     </web-presentation>
 
     <script src="//localhost:9091">// livereload</script>
