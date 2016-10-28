@@ -2,182 +2,188 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Better event handling with RxJS</title>
-    <link href="./node_modules/web-presentation/dist/web-presentation.html" rel="import">
-    <link href="./node_modules/prism-components/dist/prism-components.html" rel="import">
-    <link href="./node_modules/html-mocks/html-mocks.html" rel="import">
-    <link href="./slides/fake-editor.html" rel="import">
-    <link href="./node_modules/web-presentation/dist/transitions.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css" charset="utf-8">
+	<meta charset="UTF-8">
+	<title>Better event handling with RxJS</title>
+	<link href="./node_modules/web-presentation/dist/web-presentation.html" rel="import">
+	<link href="./node_modules/prism-components/dist/prism-components.html" rel="import">
+	<link href="./node_modules/html-mocks/html-mocks.html" rel="import">
+	<link href="./slides/fake-editor.html" rel="import">
+	<link href="./node_modules/web-presentation/dist/transitions.css" rel="stylesheet">
+	<link rel="stylesheet" href="styles.css" charset="utf-8">
 </head>
 
 <body>
-    <script src="./slides/introCallback.js"></script>
-    <script src="./slides/introPromise.js"></script>
-    <script src="./slides/introObservables.js"></script>
-    <script src="./slides/example1.js"></script>
+	<script src="./slides/introCallback.js"></script>
+	<script src="./slides/introPromise.js"></script>
+	<script src="./slides/introObservables.js"></script>
+	<script src="./slides/example1.js"></script>
+	<script src="./slides/example2.js"></script>
 
-    <web-presentation>
-        <web-presentation-progress></web-presentation-progress>
-        <web-presentation-keyboardcontrols></web-presentation-keyboardcontrols>
+	<web-presentation>
+		<web-presentation-progress></web-presentation-progress>
+		<web-presentation-keyboardcontrols></web-presentation-keyboardcontrols>
 
-        <web-slide-title>
-            <h2>Better event handling with</h2>
-            <h1>RxJS</h1>
-        </web-slide-title>
+		<web-slide-title>
+			<h1>Better event handling with RxJS</h1>
+		</web-slide-title>
 
-        <web-slide-title style="background: #fdc162;">
-            <h1>Observables</h1>
-        </web-slide-title>
+		<web-slide-title style="background: #fdc162;">
+			<h1>Observables</h1>
+		</web-slide-title>
 
-        <web-slide>
-            <h1>Agenda</h1>
-            <h2>Introduction</h2>
-            <h2>Callback vs. Promises vs. Observables</h2>
-            <h2>RxJS Examples</h2>
-        </web-slide>
-
-        <web-slide>
-            <h1>Why RxJS?</h1>
-        </web-slide>
-        <!-- RxJS is not just another tool or another framework for async -->
-        <web-slide class="fullscreen-image-contained" style="background-image: url('images/tools.png')">
-        </web-slide>
-        
-        <!-- RxJS is not just another tool or another framework for async -->
-        <web-slide class="fullscreen-image-contained" style="background-image: url('images/tools2.png')">
-        </web-slide>
-
-        <!-- RxJS is a new concept, a new toolset, based on ReactiveX -->
-        <web-slide class="fullscreen-image-contained" style="background-image: url('images/bosch-blue.jpg')">
-        </web-slide>
-
-        <web-slide>
-            <fake-editor history="introCallback" tabs="callback.js" tab-active="0" steps="41,102,147,187"></fake-editor>
-        </web-slide>
-
-        <web-slide>
-            <h1>Callbacks</h1>
-            <div class="flexbox-two-column">
-                <div>
-                    <ul class="advantages">
-                        <li>Event driven</li>
-                    </ul>                    
-                </div>
-                <div>
-                    <ul class="disadvantages">
-                        <li>Callback hell</li>
-                        <li>Tight coupling between source and listener</li>
-                        <li>No synchronization</li>
-                    </ul>   
-                </div>
-            </div>
-        </web-slide>
-
-        <web-slide>
-            <fake-editor history="introPromise" tabs="callback.js,promise.js" tab-active="1" steps="54,101,148"></fake-editor>
-        </web-slide>
-        <web-slide>
-            <h1>Promise</h1>
-            <div class="flexbox-two-column">
-                <div>
-                    <ul class="advantages">
-                        <li>Event driven</li>
-                        <li>No callback hell</li>
-                        <li>Limited synchronization (Promise.all())</li>
-                    </ul>                    
-                </div>
-                <div>
-                    <ul class="disadvantages">
-                        <li>Tight coupling between source and listener</l
-                    </ul>   
-                </div>
-            </div>
-        </web-slide>
-
-        <web-slide>
-            <fake-editor history="introObservables" tabs="callback.js,promise.js,observables.js" tab-active="2" steps=""></fake-editor>
-        </web-slide>
-        <web-slide>
-            <h1 style="margin-left: auto;margin-right: auto;">asynchronous data streams</h1>
-            <img src="images/marbles-intro.png" alt="marbles-intro" />
-        </web-slide>
-        <web-slide>
-            <h1>Observables</h1>
-            <div class="flexbox-two-column">
-                <div>
-                    <ul class="advantages">
-                        <li>You get control to the stream</li>
-                        <li>Decoupling between event source and listener </li>
-                        <li>Part of <a href="http://reactivex.io/">ReactiveX</a></li>
-                    </ul>                    
-                </div>
-                <div>
-                    <ul class="disadvantages">
-                        <li>Not an ES standard yet <br />(there is proposal, https://tc39.github.io/proposal-observable/)</li>
-                    </ul>   
-                </div>
-            </div>
-        </web-slide>
-
-        <web-slide>
-            <h1>Thank you for your attention!</h1>
-            <h2>Who wants to see some examples?</h2>
-        </web-slide>
-
-        <web-slide>
-            <fake-editor history="example1" tabs="example1.js" tab-active="0" steps=""></fake-editor>
-            let keyU = Rx.Observable.fromEvent(document, 'keypress')
-                .map(event => event.code)
-                .filter(value => value === 'KeyU')
-                .throttleTime(500);
-
-                let subscription = keyU.subscribe(c => console.log(c));
-
-                let keyC = Rx.Observable.fromEvent(document, 'keypress')
-                .map(event => event.code)
-                .filter(value => value === 'KeyC')
-                .subscribe(() => subscription.unsubscribe());
-        </web-slide>
-
-        <web-slide>
-            let apiCall1 = Rx.Observable.fromPromise(fetch('https://jsonplaceholder.typicode.com/users/1').then(res => res.json()));
+		<web-slide>
+			<h1>Agenda</h1>
+			<h2>Introduction</h2>
+			<h2>Callback vs. Promises vs. Observables</h2>
+			<h2>RxJS Examples</h2>
+			<h2>Discussion</h2>
+		</web-slide>
 
 
-let apiCall2 = Rx.Observable.fromPromise(fetch('https://jsonplaceholder.typicode.com/todos?userId=1').then(res => res.json()));
+		<web-slide class="fullscreen-image-contained" style="background-image: url('images/bramboden.jpg')">
+			<h1 style="margin: auto;color: #dfdfdf;">Why RxJS?</h1>
+		</web-slide>
 
-Rx.Observable
-  .combineLatest(apiCall1, apiCall2)
-  .subscribe(r => console.log(`user:  ${r[0].name}, number of todos: ${r[1].length}`));
-        </web-slide>
+		<!-- RxJS is not just another tool or another framework for async -->
+		<web-slide class="fullscreen-image-contained" style="background-image: url('images/tools.png')">
+		</web-slide>
 
-        <web-slide>
-            var fakedDataStream = Rx.Observable.interval(100);
+		<!-- RxJS is not just another tool or another framework for async -->
+		<web-slide class="fullscreen-image-contained" style="background-image: url('images/tools2.png')">
+		</web-slide>
 
+		<!-- RxJS is a new concept, a new toolset, based on ReactiveX -->
+		<web-slide class="fullscreen-image-contained" style="background-image: url('images/bosch-blue.jpg')">
+		</web-slide>
 
-let keyPress = Rx.Observable.fromEvent(document, 'keydown').filter(c => c.code === 'Space');
+		<web-slide>
+			<fake-editor history="introCallback" tabs="callback.js" tab-active="0" steps="41,102,147,187"></fake-editor>
+		</web-slide>
 
-let delayedStartup = Rx.Observable
-    .interval(1000)
-    .take(1);
+		<web-slide>
+			<h1>Callbacks</h1>
+			<div class="flexbox-two-column">
+				<div>
+					<ul class="advantages">
+						<li>Event driven</li>
+					</ul>
+				</div>
+				<div>
+					<ul class="disadvantages">
+						<li>Callback hell</li>
+						<li>Tight coupling between source and listener</li>
+						<li>No synchronization</li>
+					</ul>
+				</div>
+			</div>
+		</web-slide>
 
-Rx.Observable
-    .merge(keyPress, delayedStartup)
-    .withLatestFrom(fakedDataStream)
-    .subscribe(result => console.log(result[1]));
+		<web-slide>
+			<fake-editor history="introPromise" tabs="callback.js,promise.js" tab-active="1" steps="54,101,148"></fake-editor>
+		</web-slide>
+		<web-slide>
+			<h1>Promise</h1>
+			<div class="flexbox-two-column">
+				<div>
+					<ul class="advantages">
+						<li>Event driven</li>
+						<li>No callback hell</li>
+						<li>Limited synchronization (Promise.all())</li>
+					</ul>
+				</div>
+				<div>
+					<ul class="disadvantages">
+						<li>Tight coupling between source and listener</l </ul>
+				</div>
+			</div>
+		</web-slide>
 
-        </web-slide>
+		<web-slide>
+			<fake-editor history="introObservables" tabs="callback.js,promise.js,observables.js" tab-active="2" steps=""></fake-editor>
+		</web-slide>
+		<web-slide>
+			<h2 style="margin-left: auto;margin-right: auto;">asynchronous data streams</h2>
+			<img src="images/marbles-intro.png" alt="marbles-intro" />
+		</web-slide>
+		<web-slide>
+			<h2 style="margin-left: auto;margin-right: auto;">actions on the streams</h2>
+			<img src="images/marbles-intro-2.png" alt="marbles-intro" />
+		</web-slide>
+		<web-slide>
+			<h1>Observables</h1>
+			<div class="flexbox-two-column">
+				<div>
+					<ul class="advantages">
+						<li>You get control of the streams</li>
+						<li>Decoupling between event source (observable) and listener (subscriber)</li>
+						<li>Part of <a href="http://reactivex.io/">ReactiveX</a></li>
+					</ul>
+				</div>
+				<div>
+					<ul class="disadvantages">
+						<li>Not an ES standard yet <br />(there is <a href="https://tc39.github.io/proposal-observable/">proposal</a>)</li>
+					</ul>
+				</div>
+			</div>
+		</web-slide>
 
-        <web-slide>
-            <h1>sources</h1>
-             http://reactivex.io/rxjs/
-                  http://rxmarbles.com/    
-                  https://gist.github.com/staltz/868e7e9bc2a7b8c1f754
-        </web-slide>
-    </web-presentation>
+		<web-slide>
+			<h1>Thank you for your attention!</h1>
+			<h2>Interested in examples?</h2>
+		</web-slide>
 
-    <script src="//localhost:9091">// livereload</script>
+		<web-slide style="background: rgba(162, 251, 162, 0.57);">
+			<h1>Example 1: Keyboard Events</h1>
+			<div class="image-row">
+				<img src="../images/keyboard-u.png" style="width: auto;height: 100px;">
+				<div class="image-text-container">
+					<h2 style="margin: 0">log 'u' to console, throttled (max. 2 per seconds)</h2>
+				</div>
+			</div>
+			<div class="image-row">
+				<img src="../images/keyboard-c.png" style="width: auto;height: 100px;">
+				<div class="image-text-container">
+					<h2 style="margin: 0">until 'c' is pressed</h2>
+				</div>
+			</div>
+		</web-slide>
+
+		<web-slide>
+            <h2>Reminder: draw Marbles on Flipchart</h2>
+			<fake-editor history="example1" tabs="example1.js" tab-active="0" steps=""></fake-editor>
+            <p><a href="http://jsbin.com/comeqi/edit?js,console,output">JSBin</a> <a href="http://rxmarbles.com/#map">map</a> <a href="http://rxmarbles.com/#filter">filter</a></p>
+		</web-slide>
+
+		<web-slide style="background: rgba(162, 251, 162, 0.57);">
+			<h1>Example 2: API Calls</h1>
+            <h2>Fetch from User 1 (from jsonplaceholder)
+			<ul>
+                <li>Username</li>
+                <li>Number of Todos</li>
+			</ul>
+            ... and if we got both result, display it</h2>
+		</web-slide>
+
+		<web-slide>
+            <h2>Reminder: draw Marbles on Flipchart</h2>
+			<fake-editor history="example2" tabs="example1.js,example2.js" tab-active="1" steps=""></fake-editor>
+            <p><a href="http://jsbin.com/huwukez/edit?js,console,output">JSBin</a> <a href="http://rxmarbles.com/#combineLatest">combineLatest</a></p>
+		</web-slide>
+
+		<web-slide>
+			var fakedDataStream = Rx.Observable.interval(100); let keyPress = Rx.Observable.fromEvent(document, 'keydown').filter(c =>
+			c.code === 'Space'); let delayedStartup = Rx.Observable .interval(1000) .take(1); Rx.Observable .merge(keyPress, delayedStartup)
+			.withLatestFrom(fakedDataStream) .subscribe(result => console.log(result[1]));
+
+		</web-slide>
+
+		<web-slide>
+			<h1>source</h1>
+			http://reactivex.io/rxjs/ http://rxmarbles.com/ https://gist.github.com/staltz/868e7e9bc2a7b8c1f754
+		</web-slide>
+	</web-presentation>
+
+	<script src="//localhost:9091">// livereload</script>
 </body>
 
 </html>

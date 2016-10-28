@@ -211,3 +211,17 @@ ul.disadvantages> li:before {
   background-position: center;
   background-size: contain;
 }
+
+
+.image-row {
+  display: flex;
+  flex-direction: row;
+  padding: 10px 0;
+  margin-right: auto;
+}
+
+.image-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
