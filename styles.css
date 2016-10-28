@@ -22,10 +22,22 @@ web-slide-title::shadow div#content {
 }
 
 
+web-slide-title h1 { color: rgba(0,0,0,0.5); }
+web-slide-title h2 { color: rgba(0,0,0,0.3); margin: 0; }
+
 /* general styles */
 
 web-slide {
   background: #FBFBFB;
+  color: #313542;
+}
+web-slide img {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+web-slide-title {
+  background: #6699ff;
   color: #313542;
 }
 

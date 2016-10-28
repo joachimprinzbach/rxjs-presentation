@@ -15,7 +15,8 @@
 <body>
     <script src="./slides/introCallback.js"></script>
     <script src="./slides/introPromise.js"></script>
-    <script src="./slides/introRxJS.js"></script>
+    <script src="./slides/introObservables.js"></script>
+    <script src="./slides/example1.js"></script>
 
     <web-presentation>
         <web-presentation-progress></web-presentation-progress>
@@ -26,14 +27,26 @@
             <h1>RxJS</h1>
         </web-slide-title>
 
+        <web-slide-title style="background: #fdc162;">
+            <h1>Observables</h1>
+        </web-slide-title>
+
         <web-slide>
             <h1>Agenda</h1>
             <h2>Introduction</h2>
-            <h2>...</h2>
+            <h2>Callback vs. Promises vs. Observables</h2>
+            <h2>RxJS Examples</h2>
         </web-slide>
 
+        <web-slide>
+            <h1>Why RxJS?</h1>
+        </web-slide>
         <!-- RxJS is not just another tool or another framework for async -->
-        <web-slide class="fullscreen-image-contained" style="background-image: url('images/tools.jpg')">
+        <web-slide class="fullscreen-image-contained" style="background-image: url('images/tools.png')">
+        </web-slide>
+        
+        <!-- RxJS is not just another tool or another framework for async -->
+        <web-slide class="fullscreen-image-contained" style="background-image: url('images/tools2.png')">
         </web-slide>
 
         <!-- RxJS is a new concept, a new toolset, based on ReactiveX -->
@@ -55,7 +68,8 @@
                 <div>
                     <ul class="disadvantages">
                         <li>Callback hell</li>
-                        <li>Tight coupling between source and listener</l
+                        <li>Tight coupling between source and listener</li>
+                        <li>No synchronization</li>
                     </ul>   
                 </div>
             </div>
@@ -71,7 +85,7 @@
                     <ul class="advantages">
                         <li>Event driven</li>
                         <li>No callback hell</li>
-                        <li>Some synchronization (Promise.all())</li>
+                        <li>Limited synchronization (Promise.all())</li>
                     </ul>                    
                 </div>
                 <div>
@@ -83,38 +97,83 @@
         </web-slide>
 
         <web-slide>
-            <fake-editor history="introRxJS" tabs="callback.js,promise.js,rxjs.js" tab-active="2" steps=""></fake-editor>
+            <fake-editor history="introObservables" tabs="callback.js,promise.js,observables.js" tab-active="2" steps=""></fake-editor>
         </web-slide>
         <web-slide>
-            <h1>RxJS</h1>
+            <h1 style="margin-left: auto;margin-right: auto;">asynchronous data streams</h1>
+            <img src="images/marbles-intro.png" alt="marbles-intro" />
+        </web-slide>
+        <web-slide>
+            <h1>Observables</h1>
             <div class="flexbox-two-column">
                 <div>
                     <ul class="advantages">
-                        <li>Event driven</li>
+                        <li>You get control to the stream</li>
                         <li>Decoupling between event source and listener </li>
-                        <li>Part of ReactiveX</li>
+                        <li>Part of <a href="http://reactivex.io/">ReactiveX</a></li>
                     </ul>                    
                 </div>
                 <div>
                     <ul class="disadvantages">
-                        <li>Not an ES standard yet</li>
+                        <li>Not an ES standard yet <br />(there is proposal, https://tc39.github.io/proposal-observable/)</li>
                     </ul>   
                 </div>
             </div>
         </web-slide>
 
         <web-slide>
-            <h1>End of Presentation</h1>
-            <h2>Any questions?</h2>          
+            <h1>Thank you for your attention!</h1>
+            <h2>Who wants to see some examples?</h2>
         </web-slide>
 
         <web-slide>
-            <h1>RxJS Marbles</h1>
-            <h2>Lets start with http://rxmarbles.com/</h2>          
+            <fake-editor history="example1" tabs="example1.js" tab-active="0" steps=""></fake-editor>
+            let keyU = Rx.Observable.fromEvent(document, 'keypress')
+                .map(event => event.code)
+                .filter(value => value === 'KeyU')
+                .throttleTime(500);
+
+                let subscription = keyU.subscribe(c => console.log(c));
+
+                let keyC = Rx.Observable.fromEvent(document, 'keypress')
+                .map(event => event.code)
+                .filter(value => value === 'KeyC')
+                .subscribe(() => subscription.unsubscribe());
         </web-slide>
 
         <web-slide>
-            <h1>final slide</h1>          
+            let apiCall1 = Rx.Observable.fromPromise(fetch('https://jsonplaceholder.typicode.com/users/1').then(res => res.json()));
+
+
+let apiCall2 = Rx.Observable.fromPromise(fetch('https://jsonplaceholder.typicode.com/todos?userId=1').then(res => res.json()));
+
+Rx.Observable
+  .combineLatest(apiCall1, apiCall2)
+  .subscribe(r => console.log(`user:  ${r[0].name}, number of todos: ${r[1].length}`));
+        </web-slide>
+
+        <web-slide>
+            var fakedDataStream = Rx.Observable.interval(100);
+
+
+let keyPress = Rx.Observable.fromEvent(document, 'keydown').filter(c => c.code === 'Space');
+
+let delayedStartup = Rx.Observable
+    .interval(1000)
+    .take(1);
+
+Rx.Observable
+    .merge(keyPress, delayedStartup)
+    .withLatestFrom(fakedDataStream)
+    .subscribe(result => console.log(result[1]));
+
+        </web-slide>
+
+        <web-slide>
+            <h1>sources</h1>
+             http://reactivex.io/rxjs/
+                  http://rxmarbles.com/    
+                  https://gist.github.com/staltz/868e7e9bc2a7b8c1f754
         </web-slide>
     </web-presentation>
 
