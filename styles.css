@@ -225,3 +225,7 @@ ul.disadvantages> li:before {
   flex-direction: column;
   justify-content: center;
 }
+
+.cool {
+  background: rgba(0, 136, 85, 0.52);
+}
