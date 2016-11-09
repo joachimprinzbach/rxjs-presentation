@@ -11,7 +11,7 @@
 	<link href="./node_modules/web-presentation/dist/transitions.css" rel="stylesheet">
 	-->
 	<link rel='import' href='https://cdn.rawgit.com/ChristianKohler/web-presentation/master/dist/web-presentation.html'>
-    <link rel='import' href='https://cdn.rawgit.com/ChristianKohler/PrismComponents/master/dist/prism-components.html'>
+	<link rel='import' href='https://cdn.rawgit.com/ChristianKohler/PrismComponents/master/dist/prism-components.html'>
 	<link rel='import' href='https://cdn.rawgit.com/ChristianKohler/html-mocks/master/html-mocks.html'>
 	<link rel='stylesheet' href='https://cdn.rawgit.com/ChristianKohler/web-presentation/master/dist/transitions.css'>
 	<link href="./slides/fake-editor.html" rel="import">
@@ -160,33 +160,59 @@
 		</web-slide>
 
 		<web-slide>
-            <h2>note to myself: draw Marbles on Flipchart</h2>
+			<h2>note to myself: draw Marbles on Flipchart</h2>
 			<fake-editor history="example1" tabs="example1.js" tab-active="0" steps="61,124,159,192,272,361,416"></fake-editor>
-            <p><a href="http://jsbin.com/comeqi/edit?js,console,output">JSBin</a> <a href="http://rxmarbles.com/#map">map</a> <a href="http://rxmarbles.com/#filter">filter</a></p>
+			<p><a href="http://jsbin.com/comeqi/edit?js,console,output">JSBin</a> <a href="http://rxmarbles.com/#map">map</a> <a href="http://rxmarbles.com/#filter">filter</a></p>
 		</web-slide>
 
 		<web-slide style="background: rgba(162, 251, 162, 0.57);">
 			<h1>Example 2: API Calls</h1>
-            <h2>Fetch from User 1 (example data from jsonplaceholder)
-			<ul>
-                <li>Username</li>
-                <li>Number of Todos</li>
-			</ul>
-            ... and if we got both result, merge them</h2>
+			<h2>Fetch from User 1 (example data from jsonplaceholder)
+				<ul>
+					<li>Username</li>
+					<li>Number of Todos</li>
+				</ul>
+				... and if we got both result, merge them</h2>
 		</web-slide>
 
 		<web-slide>
 			<fake-editor history="example2" tabs="example1.js,example2.js" tab-active="1" steps="41,116,192,238,272"></fake-editor>
-            <p><a href="http://jsbin.com/huwukez/edit?js,console,output">JSBin</a> <a href="http://rxmarbles.com/#combineLatest">combineLatest</a></p>
+			<p><a href="http://jsbin.com/huwukez/edit?js,console,output">JSBin</a> <a href="http://rxmarbles.com/#combineLatest">combineLatest</a></p>
+		</web-slide>
+
+		<web-slide>
+			<h2 style="margin-bottom: 1em;">use the best tool for the job</h2>
+			<div class="Rtable Rtable--3cols">
+
+				<div class="Rtable-cell Rtable-cell-empty"></div>
+				<div class="Rtable-cell">
+					<h3>single</h3>
+				</div>
+				<div class="Rtable-cell">
+					<h3>multiple</h3>
+				</div>
+
+				<div class="Rtable-cell">
+					<h3>sync</h3>
+				</div>
+				<div class="Rtable-cell">values, primitives</div>
+				<div class="Rtable-cell">iterators, iterables, arrays</div>
+
+				<div class="Rtable-cell">
+					<h3>async</h3>
+				</div>
+				<div class="Rtable-cell">promises, futures</div>
+				<div class="Rtable-cell">streams, observables</div>
+			</div>
 		</web-slide>
 
 		<web-slide style="background: rgba(162, 251, 162, 0.57);">
 			<h1>Example 3: Create your own Observable</h1>
-            <h2>anywhere you want</h2>
+			<h2>anywhere you want</h2>
 		</web-slide>
 		<web-slide>
 			<fake-editor history="example3" tabs="example1.js,example2.js,example3.js" tab-active="2" steps="39,62,96,194"></fake-editor>
-            <p><a href="http://jsbin.com/vibopa/3/edit?js,console,output">JSBin</a></p>
+			<p><a href="http://jsbin.com/vibopa/3/edit?js,console,output">JSBin</a></p>
 		</web-slide>
 
 		<web-slide-title class="cool">
