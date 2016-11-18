@@ -16,6 +16,8 @@
 	<link rel='stylesheet' href='https://cdn.rawgit.com/ChristianKohler/web-presentation/master/dist/transitions.css'>
 	<link href="./slides/fake-editor.html" rel="import">
 	<link rel="stylesheet" href="styles.css" charset="utf-8">
+
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -34,11 +36,11 @@
 			<h1 style="color: #f7f7f7;">Better event handling with RxJS</h1>
 		</web-slide-title>
 
-		<web-slide-title class="fullscreen-image-contained" style="background-color: #082432;background-image: url('images/CTD_SlideDeckFolie_4_3.jpg')">
+		<web-slide-title class="fullscreen-image-contained" style="background-color: #082432;background-image: url('images/CTD_SlideDeckFolie_4_3.jpg')" data-transition="moveToLeft">
 			<h1 style="color: #f7f7f7;">Observables</h1>
 		</web-slide-title>
 
-		<web-slide>
+		<web-slide data-transition="moveToLeft">
 			<h1>Agenda</h1>
 			<h2>Introduction</h2>
 			<h2>Callback vs. Promises vs. Observables</h2>
@@ -47,6 +49,10 @@
 			<h2>Discussion</h2>
 		</web-slide>
 
+		<web-slide style="background-image:url('images/stefan.jpg');color:#3C3C3C" data-transition="fadeIn" class="fullscreen-image about align-left">
+			<h1>Stefan Jäger</h1>
+			<div><i class="fa fa-map-marker"></i>Berne &#47;<i class="fa fa-twitter"></i>steivan &#47;<i class="fa fa-github"></i>stefanjaeger</div>
+		</web-slide>
 
 		<web-slide class="fullscreen-image-contained" style="background-image: url('images/bramboden.jpg')">
 			<h1 style="margin: auto;color: #dfdfdf;">Why RxJS?</h1>
@@ -90,6 +96,7 @@
 		<web-slide>
 			<fake-editor history="introPromise" tabs="callback.js,promise.js" tab-active="1" steps="54,99,144,184"></fake-editor>
 		</web-slide>
+
 		<web-slide>
 			<h1>Promise</h1>
 			<div class="flexbox-two-column">
@@ -138,7 +145,7 @@
 			</div>
 		</web-slide>
 
-		<web-slide>
+		<web-slide data-transition="moveToLeft">
 			<h1>Thank you for your attention!</h1>
 			<h2>Interested in examples?</h2>
 		</web-slide>
@@ -210,7 +217,8 @@
 			<h1>Example 3: Create your own Observable</h1>
 			<h2>anywhere you want</h2>
 		</web-slide>
-		<web-slide>
+
+		<web-slide data-transition="moveToLeft">
 			<fake-editor history="example3" tabs="example1.js,example2.js,example3.js" tab-active="2" steps="39,62,96,194"></fake-editor>
 			<p><a href="http://jsbin.com/vibopa/3/edit?js,console,output">JSBin</a></p>
 		</web-slide>
@@ -227,7 +235,7 @@
 			<h2><a href="https://gist.github.com/staltz/868e7e9bc2a7b8c1f754">The introduction to Reactive Programming you've been missing</a></h2>
 		</web-slide>
 
-		<web-slide class="cool">
+		<web-slide class="cool" data-transition="moveToLeft">
 			<h1>cool</h1>
 			<h2><a href="http://jaredforsyth.com/rxvision/examples/playground/">RxVision</a></h2>
 			<img src="images/rxvision.png" alt="rxvision" />
